@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web OS</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="main-container"></div>
+
+    <!-- Task Bar -->
+    <div id="taskbar">
+      <!-- Empty container -->
+      <!-- <div id="left_empty_container">Left</div> -->
+      <!-- Apps that are currently in use -->
+      <div id="opened_app">
+        <div>
+          <img src="./assets/start_icon.png" alt="start_icon" />
+        </div>
+        <div>
+          <img src="./assets/file_explorer.png" alt="file_explorer" />
+        </div>
+        <div>
+          <img src="./assets/xlsx_file.png" alt="xlsx_file" />
+        </div>
+      </div>
+      <!-- Date and time at the right side -->
+      <div id="date_time_and_icons">
+        <div id="icons">
+          <img src="./assets/icons/lock.png" onclick="locking_os(event,1)" />
+          <img src="./assets/icons/full_screen.png" onclick="fullscreen()" />
+          <img src="./assets/icons/battery.png" />
+          <img src="./assets/icons/wifi.png" />
+        </div>
+        <div id="date_time">
+          Sun 19 Dec <br />
+          02:13 PM
+        </div>
+      </div>
+    </div>
+
+    <!-- Lock Screen -->
+    <div id="lock_screen" onclick="unlocking_os()">
+      <div id="lock_screen_container">
+        <div id="date_and_time">
+          <h1>02 : 18</h1>
+          <h2>Tuesday, 1st November</h2>
+        </div>
+        <div id="username">Farooq Jutt</div>
+      </div>
+    </div>
+    <!-- Locking screen with password -->
+    <div id="lock_screen_with_password">
+      <div id="asking_password">
+        <div id="img_username_password_holder">
+            <div id="image_div">
+                <img src="https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704844800&semt=ais" alt="">
+            </div>
+            <div id="username_above_password">
+                Farooq Jutt
+            </div>
+            <div id="password_container">
+                <input type="password" placeholder="Password" onkeydown="password_unlock()" id="passcode">
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./javascript/app.js"></script>
+</html>

@@ -1,0 +1,163 @@
+@font-face {
+  font-family: KaushanScript;
+  src: url(../assets/fonts/KaushanScript.ttf);
+}
+@font-face {
+  font-family: JollyLodger;
+  src: url(../assets/fonts/JollyLodger.ttf);
+}
+@font-face {
+  font-family: IMFellDWPicaSC;
+  src: url(../assets/fonts/IMFellDWPicaSC.ttf);
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+    transition: .4s ease;
+}
+
+#main-container {
+  /* height: calc(100vh - 40px); */
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  background-image: url(https://wallpapercave.com/wp/wp7094651.jpg);
+  background-size: cover;
+  background-position: center;
+}
+#taskbar {
+  position: fixed;
+  bottom: 0px;
+  height: 40px;
+  width: 100%;
+  background-color: rgb(63 60 60 / 15%);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: space-between;
+}
+#opened_app {
+  margin-left: 5px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+#opened_app img {
+  height: 27px;
+  width: 27px;
+  margin: 6px 7px 6px 7px;
+  cursor: pointer;
+}
+#left_empty_container,
+#date_time_and_icons {
+  color: white;
+}
+#date_time_and_icons {
+  display: flex;
+  align-items: center;
+}
+#date_time_and_icons #icons img {
+  width: 14px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+#date_time_and_icons #date_time {
+  padding: 0px 20px 0px 15px;
+  margin-left: 15px;
+  font-size: 11px;
+  line-height: 14px;
+  border-left: 2px solid white;
+}
+
+/* Lock Screen */
+#lock_screen {
+  transition: .7s cubic-bezier(0.8, -0.19, 0, 0.9);
+  position: fixed;
+  background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg);
+  background-size: cover;
+  background-position: center;
+  top: 100%;
+  width: 100%;
+  height: 100dvh;
+  opacity: 0;
+}
+#lock_screen #lock_screen_container {
+  height: 100%;
+  width: 100%;
+  background-color: #00000052;
+  backdrop-filter: blur(4px);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#lock_screen_container h1 {
+  font-size: 100px;
+  font-family: KaushanScript !important;
+}
+#lock_screen_container h2 {
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-family: IMFellDWPicaSC !important;
+}
+
+#username {
+  position: fixed;
+  bottom: 20px;
+  font-size: 27px;
+  font-family: JollyLodger;
+}
+/* Lock screen with password */
+#lock_screen_with_password {
+  transition: 1s cubic-bezier(0.8, -0.19, 0, 0.9);
+  position: fixed;
+  background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg);
+  background-size: cover;
+  background-position: center;
+  top: 100%;
+  display: none;
+  width: 100%;
+  height: 100dvh;
+  /* opacity: 0; */
+}
+#lock_screen_with_password #asking_password {
+  height: 100%;
+  width: 100%;
+  background-color: #00000052;
+  backdrop-filter: blur(4px);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#img_username_password_holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#asking_password #image_div {
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+#image_div img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+#asking_password #username_above_password {
+  font-size: 40px;
+  font-family: JollyLodger;
+  margin: 10px 0px 15px 0px;
+}
+#password_container input {
+  height: 35px;
+  width: 240px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 10px;
+}
