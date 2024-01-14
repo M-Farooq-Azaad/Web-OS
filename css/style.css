@@ -15,15 +15,16 @@
   padding: 0px;
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
-    transition: .4s ease;
+  transition: 0.4s ease;
 }
 
 #main-container {
   /* height: calc(100vh - 40px); */
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   background-color: black;
   background-image: url(https://wallpapercave.com/wp/wp7094651.jpg);
+  background-image: url(https://i.pinimg.com/originals/51/ef/eb/51efeb2d035a4a3e0113ccef7857b4a1.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -72,7 +73,7 @@
 
 /* Lock Screen */
 #lock_screen {
-  transition: .7s cubic-bezier(0.8, -0.19, 0, 0.9);
+  transition: 0.7s cubic-bezier(0.8, -0.19, 0, 0.9);
   position: fixed;
   background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg);
   background-size: cover;
@@ -161,3 +162,102 @@
   border-radius: 4px;
   padding-left: 10px;
 }
+
+/* Main Container */
+#mainMenu-container {
+  background-color: rgb(0 0 0 / 60%);
+  transition: 0.3s ease-in-out !important;
+  height: calc(100dvh - 40px);
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+#apps-container {
+  max-width: 95%;
+  height: 100%;
+  transition: 2s cubic-bezier(0.76, 1.18, 1, -0.15);
+  scroll-snap-type: x mandatory;
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  align-content: center;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+#apps-container::-webkit-scrollbar {
+  display: none;
+}
+
+#page-1 {
+  min-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  scroll-snap-align: center;
+}
+#page-2 {
+  min-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  scroll-snap-align: center;
+}
+.app-in-menu {
+  flex: 1 1 content;
+  /* background-color: tan; */
+  /* backdrop-filter: blur(10px); */
+  min-width: 80px;
+  max-width: 80px;
+  height: 70px;
+  margin: 5px;
+}
+.app-in-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app-in-menu img {
+  margin-bottom: 3px;
+  width: 50px;
+}
+.app-in-menu h5 {
+  color: white;
+  font-weight: 400;
+}
+/* Search Field */
+#search_app_container {
+  transition: .3s ease;
+  /* height: calc(100dvh - 40px); */
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  /* background-color: rgba(0, 0, 0, 0.395); */
+  /* backdrop-filter: blur(10px); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/* #search_app_container:hover {
+  height: calc(100dvh - 40px);
+} */
+#search_app_container #search_app {
+  margin-top: 10px;
+  height: 40px;
+  width: 350px;
+  border: none;
+  border-radius: 50px;
+  padding-left: 15px;
+}
+/* #search_app_container h3{
+  color: white;
+  margin-top: 20px;
+} */

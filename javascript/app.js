@@ -50,6 +50,7 @@ function password_unlock() {
     // lock_screen.style.top = "100%"
   }
 }
+
 document.addEventListener("keydown", locking_os);
 document.addEventListener("keydown", unlocking_os);
 
@@ -89,4 +90,39 @@ function closeFullscreen() {
     /* IE11 */
     document.msExitFullscreen();
   }
+}
+
+/* Main Menu Container */
+let mainMenu = document.getElementById("mainMenu-container");
+var mainMenu_flag = "off";
+function main_menu(event, clicked) {
+  if (mainMenu_flag === "off") {
+    if (event.ctrlKey || clicked) {
+      mainMenu.style.display = "flex";
+      setTimeout(() => {
+        mainMenu.style.opacity = "1";
+      }, 10);
+      mainMenu_flag = "on";
+      console.log(mainMenu_flag);
+    }
+  } else if (mainMenu_flag === "on") {
+    if (event.ctrlKey || clicked) {
+      mainMenu.style.opacity = "0";
+      setTimeout(() => {
+        mainMenu.style.display = "none";
+      }, 300);
+      mainMenu_flag = "off";
+      console.log(mainMenu_flag);
+    }
+  }
+}
+document.addEventListener("keydown", main_menu);
+
+/* Search Box animation */
+
+function search_screen() {
+  let search_container = document.getElementById("search_app_container");
+  search_container.style.height = "calc(100dvh - 40px)" 
+  search_container.style.backgroundColor = "rgba(0, 0, 0, 0.395)" 
+  search_container.style.backdropFilter = "blur(10px)" 
 }

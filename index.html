@@ -16,7 +16,11 @@
       <!-- Apps that are currently in use -->
       <div id="opened_app">
         <div>
-          <img src="./assets/start_icon.png" alt="start_icon" />
+          <img
+            src="./assets/start_icon.png"
+            alt="start_icon"
+            onclick="main_menu(event,'clicked')"
+          />
         </div>
         <div>
           <img src="./assets/file_explorer.png" alt="file_explorer" />
@@ -54,15 +58,191 @@
     <div id="lock_screen_with_password">
       <div id="asking_password">
         <div id="img_username_password_holder">
-            <div id="image_div">
-                <img src="https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704844800&semt=ais" alt="">
-            </div>
-            <div id="username_above_password">
-                Farooq Jutt
-            </div>
-            <div id="password_container">
-                <input type="password" placeholder="Password" onkeydown="password_unlock()" id="passcode">
-            </div>
+          <div id="image_div">
+            <img
+              src="https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704844800&semt=ais"
+              alt=""
+            />
+          </div>
+          <div id="username_above_password">Farooq Jutt</div>
+          <div id="password_container">
+            <input
+              type="password"
+              placeholder="Password"
+              onkeydown="password_unlock()"
+              id="passcode"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="mainMenu-container">
+      <div id="search_app_container">
+        <!-- <h3>Search App</h3> -->
+        <input type="text" id="search_app" placeholder="Search App" onclick="search_screen()"/>
+      </div>
+      <div id="apps-container">
+        <div id="page-1">
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/chrome.png" alt="" />
+            <h5>Chrome</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/edge.png" alt="" />
+            <h5>Edge</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/facebook.png" alt="" />
+            <h5>Facebook</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/instagram.png" alt="" />
+            <h5>Gmail</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/settings.png" alt="" />
+            <h5>IDM</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/gmail.png" alt="" />
+            <h5>Instagram</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/settings.png" alt="" />
+            <h5>LinkedIn</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/phone.png" alt="" />
+            <h5>OBS Studio</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/chrome.png" alt="" />
+            <h5>Opera</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/tiktok.png" alt="" />
+            <h5>Telegram</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/twitch.png" alt="" />
+            <h5>Twitter</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/obs.png" alt="" />
+            <h5>Phone</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/viber.png" alt="" />
+            <h5>Discord</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/telegram.png" alt="" />
+            <h5>Tiktok</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/Discord.png" alt="" />
+            <h5>Twitch</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/viber.png" alt="" />
+            <h5>Viber</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/netflix.png" alt="" />
+            <h5>Netflix</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/gmail.png" alt="" />
+            <h5>Gmail</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/idm.png" alt="" />
+            <h5>IDM</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/instagram.png" alt="" />
+            <h5>Instagram</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/linkedin.png" alt="" />
+            <h5>LinkedIn</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/obs.png" alt="" />
+            <h5>OBS Studio</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/opera.png" alt="" />
+            <h5>Opera</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/telegram.png" alt="" />
+            <h5>Telegram</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/twitter.png" alt="" />
+            <h5>Twitter</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/phone.png" alt="" />
+            <h5>Phone</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/discord.png" alt="" />
+            <h5>Discord</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/tiktok.png" alt="" />
+            <h5>Tiktok</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/twitch.png" alt="" />
+            <h5>Twitch</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/viber.png" alt="" />
+            <h5>Viber</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/netflix.png" alt="" />
+            <h5>Netflix</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/viber.png" alt="" />
+            <h5>Viber</h5>
+          </div>
+        </div>
+        <div id="page-2">
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/phone.png" alt="" />
+            <h5>Phone</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/discord.png" alt="" />
+            <h5>Discord</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/tiktok.png" alt="" />
+            <h5>Tiktok</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/twitch.png" alt="" />
+            <h5>Twitch</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/viber.png" alt="" />
+            <h5>Viber</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/netflix.png" alt="" />
+            <h5>Netflix</h5>
+          </div>
+          <div class="app-in-menu">
+            <img src="./assets/app_icons/viber.png" alt="" />
+            <h5>Viber</h5>
+          </div>
         </div>
       </div>
     </div>
