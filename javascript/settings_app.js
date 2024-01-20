@@ -1,3 +1,6 @@
+function _id(id) {
+  return document.getElementById(id);
+}
 let isDragging = false;
 let offsetX, offsetY;
 let containerId = "";
@@ -88,3 +91,35 @@ function dbclick() {
     document.getElementById(containerId).style.transition = "none";
   }, 300);
 }
+
+/* Background Changer */
+function changeBg(id) {
+  let bg_input = document.getElementById(`${id}-updater`);
+  if (bg_input.files.length > 0) {
+    const file = bg_input.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      // Convert the image data to Base64
+      const imageData = e.target.result;
+      localStorage.setItem(id, imageData);
+      console.log("Image uploaded to local storage!");
+      bg_changer(id, localStorage.getItem(id));
+    };
+    reader.readAsDataURL(file);
+  } else {
+    alert("Please select an image file.");
+  }
+}
+function bg_changer(id, url) {
+  if (id === "main-container") {
+    let background = _id(id);
+    background.style.backgroundImage = `url(${url})`;
+  } else if (id === "lock_screen") {
+    let background = _id("lock_screen");
+    let background2 = _id("lock_screen_with_password");
+    background.style.backgroundImage = `url(${url})`;
+    background2.style.backgroundImage = `url(${url})`;
+  }
+}
+bg_changer("main-container", localStorage.getItem("main-container"));
+bg_changer("lock_screen", localStorage.getItem("lock_screen"));

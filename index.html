@@ -551,7 +551,7 @@
   <div id="settings-app" class="move-able">
     <div class="topBar" onmousedown="startDragging(event,'settings-app')" ondblclick="dbclick()">
       <div>
-        <h5>Settings</h5>
+        <h5>Management</h5>
       </div>
       <div class="navigations">
         <div class="navigation_options maximize"></div>
@@ -576,13 +576,16 @@
         </div>
       </div>
     </div>
+    <div class="application_main_body">
+      <!-- <iframe src="https://codebeautify.org/api-test" style="width: 100%;height: inherit;"></iframe> -->
+    </div>
   </div>
 
   <!-- Three -->
   <div id="third-app" class="move-able">
     <div class="topBar" onmousedown="startDragging(event,'third-app')" ondblclick="dbclick()">
       <div>
-        <h5>Camera</h5>
+        <h5>Settings</h5>
       </div>
       <div class="navigations">
         <div class="navigation_options maximize"></div>
@@ -590,6 +593,16 @@
         <div class="navigation_options close"><a href="./demo.html">click</a>
         </div>
       </div>
+    </div>
+    <div class="application_main_body">
+      <h4>desktop background</h4>
+      <input type="file" id="main-container-updater">
+      <button onclick="changeBg('main-container')">Change Now</button>
+      <br>
+      <br>
+      <h4>Lock screen background</h4>
+      <input type="file" id="lock_screen-updater">
+      <button onclick="changeBg('lock_screen')">Change Now</button>
     </div>
   </div>
 

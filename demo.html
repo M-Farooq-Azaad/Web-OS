@@ -1,85 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movable Div</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-
-        .containers {
-            width: 100px;
-            height: 100px;
-            background-color: teal;
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            width: 200px;
-            height: 150px;
-        }
-
-        .navigations {
-            background-color: orange;
-            cursor: move;
-            height: 20px;
-            width: 100%;
-        }
-
-        .inner-container {
-            position: absolute;
-            bottom: 0px;
-            height: 130px;
-            width: 100%;
-            background-color: crimson;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Upload to Local Storage</title>
 </head>
-
 <body>
+  <input type="file" id="imageInput" accept="image/*">
+  <button onclick="uploadImage()">Upload Image</button>
 
-    <div id="movableDiv1" class="containers">
-        <div class="navigations" onmousedown="startDragging(event,'movableDiv1')"></div>
-        <div class="inner-container"></div>
-    </div>
-    <!-- <div id="movableDiv2" class="containers" onmousedown="startDragging(event,'movableDiv2')">Container 2</div>
-    <div id="movableDiv3" class="containers" onmousedown="startDragging(event,'movableDiv3')">Container 3</div>
-    <div id="movableDiv4" class="containers" onmousedown="startDragging(event,'movableDiv4')">Container 4</div> -->
+  <script>
+    function uploadImage() {
+      const input = document.getElementById('imageInput');
+      
+      // Ensure a file is selected
+      if (input.files.length > 0) {
+        const file = input.files[0];
 
+        // Use FileReader to read the file content
+        const reader = new FileReader();
 
-    <script>
-        let isDragging = false;
-        let offsetX, offsetY;
-        let containerId = ""
-        // document.getElementById('movableDiv').addEventListener('mousedown', startDragging);
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('mouseup', stopDragging);
+        reader.onload = function (e) {
+          // Convert the image data to Base64
+          const imageData = e.target.result;
 
-        function startDragging(e, id) {
-            containerId = id;
-            isDragging = true;
-            offsetX = e.clientX - parseFloat(window.getComputedStyle(document.getElementById(containerId)).left);
-            offsetY = e.clientY - parseFloat(window.getComputedStyle(document.getElementById(containerId)).top);
-        }
+          // Store the Base64 data in local storage
+          localStorage.setItem('uploadedImage', imageData);
 
-        function drag(e) {
-            if (isDragging) {
-                let newX = e.clientX - offsetX;
-                let newY = e.clientY - offsetY;
+          alert('Image uploaded to local storage!');
+        };
 
-                document.getElementById(containerId).style.left = newX + 'px';
-                document.getElementById(containerId).style.top = newY + 'px';
-            }
-        }
-
-        function stopDragging() {
-            isDragging = false;
-        }
-    </script>
-
+        // Read the file as data URL (Base64)
+        reader.readAsDataURL(file);
+      } else {
+        alert('Please select an image file.');
+      }
+    }
+  </script>
 </body>
-
 </html>

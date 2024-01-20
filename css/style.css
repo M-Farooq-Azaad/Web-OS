@@ -42,7 +42,7 @@ body{
   width: 100%;
   background-color: black;
   /* background-image: url(https://wallpapercave.com/wp/wp7094651.jpg); */
-  background-image: url(https://i.pinimg.com/originals/51/ef/eb/51efeb2d035a4a3e0113ccef7857b4a1.jpg);
+  /* background-image: url(https://i.pinimg.com/originals/51/ef/eb/51efeb2d035a4a3e0113ccef7857b4a1.jpg); */
   background-size: cover;
   background-position: center;
 }
@@ -95,7 +95,7 @@ body{
   transition: 0.7s cubic-bezier(0.8, -0.19, 0, 0.9);
   position: fixed;
   z-index: 10;
-  background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg);
+  /* background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg); */
   background-size: cover;
   background-position: center;
   top: 100%;
@@ -134,7 +134,7 @@ body{
   transition: 1s cubic-bezier(0.8, -0.19, 0, 0.9);
   position: fixed;
   z-index: 9;
-  background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg);
+  /* background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg); */
   background-size: cover;
   background-position: center;
   top: 100%;

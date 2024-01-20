@@ -12,11 +12,14 @@
 #settings-app {
   background-color: tan;
 }
-#camera-app{
-    background-color: crimson;
+#camera-app {
+  background-color: crimson;
 }
-#third-app{
-    background-color: olivedrab;
+#third-app {
+  background-color: olivedrab;
+}
+.application_main_body {
+  margin-top: 35px;
 }
 .navigations {
   display: flex;
