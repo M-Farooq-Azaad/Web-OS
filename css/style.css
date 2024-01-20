@@ -10,26 +10,45 @@
   font-family: IMFellDWPicaSC;
   src: url(../assets/fonts/IMFellDWPicaSC.ttf);
 }
+:root {
+  color-scheme: dark;
 
+  --grey0: #f6f6f6;
+  --grey1: #dbdbdb;
+  --grey2: #b3b3b3;
+  --grey3: #9c9c9c;
+  --grey4: #7a7a7a;
+  --grey5: #585858;
+  --grey6: #2c2c2c;
+  --grey7: #3d3d3d;
+  --grey8: #232323;
+  --grey9: #161616;
+
+  --sans: "Inter", sans-serif;
+}
 * {
   padding: 0px;
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
   transition: 0.4s ease;
+  scroll-behavior: smooth;
 }
-
+body{
+  user-select: none;
+}
 #main-container {
   /* height: calc(100vh - 40px); */
   height: 100dvh;
   width: 100%;
   background-color: black;
-  background-image: url(https://wallpapercave.com/wp/wp7094651.jpg);
+  /* background-image: url(https://wallpapercave.com/wp/wp7094651.jpg); */
   background-image: url(https://i.pinimg.com/originals/51/ef/eb/51efeb2d035a4a3e0113ccef7857b4a1.jpg);
   background-size: cover;
   background-position: center;
 }
 #taskbar {
   position: fixed;
+  z-index: 9;
   bottom: 0px;
   height: 40px;
   width: 100%;
@@ -75,6 +94,7 @@
 #lock_screen {
   transition: 0.7s cubic-bezier(0.8, -0.19, 0, 0.9);
   position: fixed;
+  z-index: 10;
   background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg);
   background-size: cover;
   background-position: center;
@@ -113,6 +133,7 @@
 #lock_screen_with_password {
   transition: 1s cubic-bezier(0.8, -0.19, 0, 0.9);
   position: fixed;
+  z-index: 9;
   background-image: url(https://wallpapers.com/images/hd/aesthetic-computer-4k-c9qdhe02pr84wh3a.jpg);
   background-size: cover;
   background-position: center;
@@ -164,7 +185,7 @@
 }
 
 /* Main Container */
-#mainMenu-container {
+#mainMenu-container-old {
   background-color: rgb(0 0 0 / 60%);
   transition: 0.3s ease-in-out !important;
   height: calc(100dvh - 40px);
@@ -176,7 +197,7 @@
   flex-direction: column;
   justify-content: center;
 }
-#apps-container {
+#apps-container-old {
   max-width: 95%;
   height: 100%;
   transition: 2s cubic-bezier(0.76, 1.18, 1, -0.15);
@@ -188,11 +209,11 @@
   width: 100%;
   scroll-behavior: smooth;
 }
-#apps-container::-webkit-scrollbar {
+#apps-container-old::-webkit-scrollbar {
   display: none;
 }
 
-#page-1 {
+#page-1-old {
   min-width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -200,7 +221,7 @@
   justify-content: center;
   scroll-snap-align: center;
 }
-#page-2 {
+#page-2-old {
   min-width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -208,7 +229,7 @@
   justify-content: center;
   scroll-snap-align: center;
 }
-.app-in-menu {
+.app-in-menu-old {
   flex: 1 1 content;
   /* background-color: tan; */
   /* backdrop-filter: blur(10px); */
@@ -217,23 +238,23 @@
   height: 70px;
   margin: 5px;
 }
-.app-in-menu {
+.app-in-menu-old {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.app-in-menu img {
+.app-in-menu-old img {
   margin-bottom: 3px;
   width: 50px;
 }
-.app-in-menu h5 {
+.app-in-menu-old h5 {
   color: white;
   font-weight: 400;
 }
 /* Search Field */
-#search_app_container {
-  transition: .3s ease;
+#search_app_container-old {
+  transition: 0.3s ease;
   /* height: calc(100dvh - 40px); */
   height: 50px;
   width: 100%;
@@ -249,7 +270,7 @@
 /* #search_app_container:hover {
   height: calc(100dvh - 40px);
 } */
-#search_app_container #search_app {
+#search_app_container-old #search_app {
   margin-top: 10px;
   height: 40px;
   width: 350px;
@@ -261,3 +282,259 @@
   color: white;
   margin-top: 20px;
 } */
+
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+#main_menu_windows {
+  transition: 0.2s ease;
+  width: 590px;
+  height: 75vh;
+  background-color: rgba(0, 0, 0, 0.774);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  bottom: calc(0px + 40px);
+  opacity: 0;
+  bottom: -10px;
+  display: none;
+  z-index: 8;
+  /* left: -10px; */
+}
+
+#column-1 {
+  width: 50px;
+  height: 100%;
+  /* background-color: teal; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: end;
+}
+#column-2 {
+  position: relative;
+  width: 45%;
+  height: 100%;
+  /* background-color: crimson; */
+  overflow: scroll;
+  padding-top: 30px;
+}
+#column-2::-webkit-scrollbar {
+  display: none;
+}
+#column-3 {
+  width: 55%;
+  height: 100%;
+  /* background-color: cornflowerblue; */
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.1rem;
+  padding: 40px 7px 0px 0px;
+  overflow: scroll;
+}
+#column-3::-webkit-scrollbar {
+  display: none;
+}
+#column-1 div {
+  margin-bottom: 10px;
+  margin-left: 13px;
+}
+#column-1 img {
+  width: 20px;
+}
+
+.app_list {
+  display: flex;
+  align-items: center;
+  /* background-color: teal; */
+  height: 38px;
+  padding: 0px 5px;
+  color: white;
+}
+.app_list img {
+  width: 25px;
+  height: 25px;
+}
+.app_list h5 {
+  font-size: 12px;
+  padding-left: 6px;
+  font-weight: 300;
+}
+.app-topic {
+  margin: 10px 0px 5px 0px;
+  color: white;
+  font-size: 12px;
+  /* padding-left: 6px; */
+  /* font-weight: 500; */
+}
+.select-apps {
+  flex: 1 1 content;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 95px;
+  /* max-width: 95px; */
+  height: 80px;
+  background-color: rgb(150 150 150 / 30%);
+  color: white;
+  text-align: center;
+}
+.select-apps img {
+  width: 40px;
+  margin-bottom: 6px;
+}
+.select-apps h5 {
+  font-size: 12px;
+  font-weight: 300;
+}
+#column-3 {
+  position: relative;
+}
+#column-3 .title,
+#column-2 .title {
+  position: absolute;
+  /* padding: 7px 0px; */
+  color: white;
+  width: 100%;
+  top: 1px;
+  /* bottom: 0px; */
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  /* background-color: crimson; */
+}
+.title div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: cadetblue; */
+}
+.title div h5 {
+  font-size: 12px;
+  padding-left: 6px;
+  font-weight: 300;
+}
+#column-2 .title div p:nth-child(2) {
+  transform: rotate(-90deg);
+  font-size: 25px;
+  margin-right: 10px;
+  color: transparent;
+}
+#column-3 .title div p:nth-child(2) {
+  color: transparent;
+  transform: rotate(90deg);
+  font-size: 25px;
+  margin-right: 10px;
+}
+@media (max-width: 750px) {
+  #main_menu_windows {
+    display: flex;
+    width: 100vw;
+    height: calc(100dvh - 40px);
+    flex-direction: column;
+  }
+  #column-1 {
+    height: 27px;
+    width: 100%;
+    /* background-color: aqua; */
+    order: 3;
+  }
+  #column-1 div {
+    margin: 0px;
+  }
+  #column-2 {
+    height: 100%;
+    order: 2;
+    width: 100%;
+    /* background-color: tan; */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: baseline;
+    margin: 10px 0px;
+  }
+  #column-2 .app_list {
+    width: 150px;
+  }
+  #column-3 {
+    height: 280px;
+    width: 100%;
+    order: 1;
+    /* background-color: tomato; */
+  }
+  #column-3 .select-apps {
+  }
+  .title div p:nth-child(2) {
+    color: white !important;
+  }
+}
+
+/* Context Menu */
+
+.hide {
+  display: none !important;
+}
+
+.menu {
+  transition: none;
+  user-select: none;
+  font-size: 14px;
+  background-color: #1b1b1b;
+  border: 1px solid var(--grey8);
+  border-radius: 5px;
+  width: 200px;
+  height: auto;
+  margin: 0;
+  position: absolute;
+  list-style: none;
+  padding: 5px;
+  z-index: 99999;
+}
+.menu * {
+  box-sizing: border-box;
+}
+.row {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  padding: 15px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.row:hover {
+  background-color: var(--grey8);
+}
+
+.row:active {
+  background-color: #292929;
+}
+
+.row > div {
+  display: flex;
+  align-items: center;
+}
+
+.row kbd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  height: 20px;
+  width: 20px;
+  font-size: 10px;
+  background-color: var(--grey8);
+  margin-left: 5px;
+  border-radius: 3px;
+}
+
+.row:hover kbd {
+  background-color: var(--grey7);
+}
+
+.divider {
+  margin: 10px 0;
+  border: 1px solid var(--grey8);
+}

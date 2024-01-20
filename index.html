@@ -1,86 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web OS</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <div id="main-container"></div>
 
-    <!-- Task Bar -->
-    <div id="taskbar">
-      <!-- Empty container -->
-      <!-- <div id="left_empty_container">Left</div> -->
-      <!-- Apps that are currently in use -->
-      <div id="opened_app">
-        <div>
-          <img
-            src="./assets/start_icon.png"
-            alt="start_icon"
-            onclick="main_menu(event,'clicked')"
-          />
-        </div>
-        <div>
-          <img src="./assets/file_explorer.png" alt="file_explorer" />
-        </div>
-        <div>
-          <img src="./assets/xlsx_file.png" alt="xlsx_file" />
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web OS</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/settings_app.css" />
+</head>
+
+<body>
+  <div id="main-container" oncontextmenu="showContextMenu(event)"></div>
+
+  <!-- Task Bar -->
+  <div id="taskbar">
+    <!-- Empty container -->
+    <!-- <div id="left_empty_container">Left</div> -->
+    <!-- Apps that are currently in use -->
+    <div id="opened_app">
+      <div>
+        <img src="./assets/start_icon.png" alt="start_icon" onclick="main_menu(event,'clicked')" />
       </div>
-      <!-- Date and time at the right side -->
-      <div id="date_time_and_icons">
-        <div id="icons">
-          <img src="./assets/icons/lock.png" onclick="locking_os(event,1)" />
-          <img src="./assets/icons/full_screen.png" onclick="fullscreen()" />
-          <img src="./assets/icons/battery.png" />
-          <img src="./assets/icons/wifi.png" />
+      <div>
+        <img src="./assets/file_explorer.png" alt="file_explorer" />
+      </div>
+      <div>
+        <img src="./assets/xlsx_file.png" alt="xlsx_file" />
+      </div>
+    </div>
+    <!-- Date and time at the right side -->
+    <div id="date_time_and_icons">
+      <div id="icons">
+        <img src="./assets/icons/lock.png" onclick="locking_os(event,1)" />
+        <img src="./assets/icons/full_screen.png" onclick="fullscreen()" />
+        <img src="./assets/icons/battery.png" />
+        <img src="./assets/icons/wifi.png" />
+      </div>
+      <div id="date_time">
+        Sun 19 Dec <br />
+        02:13 PM
+      </div>
+    </div>
+  </div>
+
+  <!-- Lock Screen -->
+  <div id="lock_screen" onclick="unlocking_os()">
+    <div id="lock_screen_container">
+      <div id="date_and_time">
+        <h1>02 : 18</h1>
+        <h2>Tuesday, 1st November</h2>
+      </div>
+      <div id="username">Farooq Jutt</div>
+    </div>
+  </div>
+  <!-- Locking screen with password -->
+  <div id="lock_screen_with_password">
+    <div id="asking_password">
+      <div id="img_username_password_holder">
+        <div id="image_div">
+          <img src="./assets/profile.png" alt="" />
         </div>
-        <div id="date_time">
-          Sun 19 Dec <br />
-          02:13 PM
+        <div id="username_above_password">Farooq Jutt</div>
+        <div id="password_container">
+          <input type="password" placeholder="Password" onkeydown="password_unlock()" id="passcode" />
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Lock Screen -->
-    <div id="lock_screen" onclick="unlocking_os()">
-      <div id="lock_screen_container">
-        <div id="date_and_time">
-          <h1>02 : 18</h1>
-          <h2>Tuesday, 1st November</h2>
-        </div>
-        <div id="username">Farooq Jutt</div>
-      </div>
-    </div>
-    <!-- Locking screen with password -->
-    <div id="lock_screen_with_password">
-      <div id="asking_password">
-        <div id="img_username_password_holder">
-          <div id="image_div">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-young-woman-with-natural-make-up_23-2149084942.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704844800&semt=ais"
-              alt=""
-            />
-          </div>
-          <div id="username_above_password">Farooq Jutt</div>
-          <div id="password_container">
-            <input
-              type="password"
-              placeholder="Password"
-              onkeydown="password_unlock()"
-              id="passcode"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Main Menu -->
-    <div id="mainMenu-container">
+  <!-- Main Menu -->
+  <!-- <div id="mainMenu-container">
       <div id="search_app_container">
-        <!-- <h3>Search App</h3> -->
         <input type="text" id="search_app" placeholder="Search App" onclick="search_screen()"/>
       </div>
       <div id="apps-container">
@@ -245,7 +235,442 @@
           </div>
         </div>
       </div>
+    </div> -->
+
+  <!-- Main Meni Two -->
+  <div id="main_menu_windows">
+    <div id="column-1">
+      <div>
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <img src="./assets/app_icons/telegram.png" alt="" />
+      </div>
     </div>
-  </body>
-  <script src="./javascript/app.js"></script>
+    <div id="column-2">
+      <div class="title" id="column-2-header">
+        <div>
+          <h5>All Apps</h5>
+          <p>&#10158;</p>
+        </div>
+      </div>
+      <!-- <h5 class="app-topic">Recently added</h5> -->
+      <div class="app_list">
+        <img src="./assets/app_icons/chrome.png" alt="" />
+        <h5>Chrome</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <h5>Opera</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/edge.png" alt="" />
+        <h5>Microsoft Edge</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/discord.png" alt="" />
+        <h5>Discord</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/gmail.png" alt="" />
+        <h5>Gmail</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/idm.png" alt="" />
+        <h5>Internet Download Manager</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/facebook.png" alt="" />
+        <h5>Facebook</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/instagram.png" alt="" />
+        <h5>Instagram</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/linkedin.png" alt="" />
+        <h5>LinkedIn</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Netflix</h5>
+      </div>
+      <!-- <h5 class="app-topic">Most Used App</h5> -->
+      <div class="app_list">
+        <img src="./assets/app_icons/chrome.png" alt="" />
+        <h5>Chrome</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <h5>Opera</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/edge.png" alt="" />
+        <h5>Microsoft Edge</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/discord.png" alt="" />
+        <h5>Discord</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/gmail.png" alt="" />
+        <h5>Gmail</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/idm.png" alt="" />
+        <h5>Internet Download Manager</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/facebook.png" alt="" />
+        <h5>Facebook</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/instagram.png" alt="" />
+        <h5>Instagram</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/linkedin.png" alt="" />
+        <h5>LinkedIn</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Netflix</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/chrome.png" alt="" />
+        <h5>Chrome</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <h5>Opera</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/edge.png" alt="" />
+        <h5>Microsoft Edge</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/discord.png" alt="" />
+        <h5>Discord</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/gmail.png" alt="" />
+        <h5>Gmail</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/idm.png" alt="" />
+        <h5>Internet Download Manager</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/facebook.png" alt="" />
+        <h5>Facebook</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/instagram.png" alt="" />
+        <h5>Instagram</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/linkedin.png" alt="" />
+        <h5>LinkedIn</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Netflix</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/linkedin.png" alt="" />
+        <h5>LinkedIn</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Netflix</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/chrome.png" alt="" />
+        <h5>Chrome</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <h5>Opera</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/edge.png" alt="" />
+        <h5>Microsoft Edge</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/discord.png" alt="" />
+        <h5>Discord</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/gmail.png" alt="" />
+        <h5>Gmail</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/idm.png" alt="" />
+        <h5>Internet Download Manager</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/facebook.png" alt="" />
+        <h5>Facebook</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/instagram.png" alt="" />
+        <h5>Instagram</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/linkedin.png" alt="" />
+        <h5>LinkedIn</h5>
+      </div>
+      <div class="app_list">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Netflix</h5>
+      </div>
+    </div>
+    <div id="column-3">
+      <div class="title" id="column-3-header">
+        <div>
+          <h5>Pinned Apps</h5>
+          <p>&#10158;</p>
+        </div>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/chrome.png" alt="" />
+        <h5>Chrome</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <h5>Opera</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/edge.png" alt="" />
+        <h5>Microsoft Edge</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Internet download Manager</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/instagram.png" alt="" />
+        <h5>Instagram</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/youtube.png" alt="" />
+        <h5>Youtube</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/telegram.png" alt="" />
+        <h5>Telegram</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/vk.png" alt="" />
+        <h5>VK</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/chrome.png" alt="" />
+        <h5>Chrome</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <h5>Opera</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/edge.png" alt="" />
+        <h5>Microsoft Edge</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Netflix</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/instagram.png" alt="" />
+        <h5>Instagram</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/chrome.png" alt="" />
+        <h5>Chrome</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <h5>Opera</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/edge.png" alt="" />
+        <h5>Microsoft Edge</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Internet download Manager</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/instagram.png" alt="" />
+        <h5>Instagram</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/youtube.png" alt="" />
+        <h5>Youtube</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/telegram.png" alt="" />
+        <h5>Telegram</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/vk.png" alt="" />
+        <h5>VK</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/chrome.png" alt="" />
+        <h5>Chrome</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/opera.png" alt="" />
+        <h5>Opera</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/edge.png" alt="" />
+        <h5>Microsoft Edge</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/netflix.png" alt="" />
+        <h5>Netflix</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/instagram.png" alt="" />
+        <h5>Instagram</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/youtube.png" alt="" />
+        <h5>Youtube</h5>
+      </div>
+      <div class="select-apps">
+        <img src="./assets/app_icons/telegram.png" alt="" />
+        <h5>Telegram</h5>
+      </div>
+      <div style="width: 100%; height: 50px"></div>
+    </div>
+  </div>
+
+
+  <!-- One -->
+  <div id="settings-app" class="move-able">
+    <div class="topBar" onmousedown="startDragging(event,'settings-app')" ondblclick="dbclick()">
+      <div>
+        <h5>Settings</h5>
+      </div>
+      <div class="navigations">
+        <div class="navigation_options maximize"></div>
+        <div class="navigation_options minimize"></div>
+        <div class="navigation_options close"><a href="./demo.html">click</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Two -->
+  <div id="camera-app" class="move-able">
+    <div class="topBar" onmousedown="startDragging(event,'camera-app')" ondblclick="dbclick()">
+      <div>
+        <h5>Camera</h5>
+      </div>
+      <div class="navigations">
+        <div class="navigation_options maximize"></div>
+        <div class="navigation_options minimize"></div>
+        <div class="navigation_options close"><a href="./demo.html">click</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three -->
+  <div id="third-app" class="move-able">
+    <div class="topBar" onmousedown="startDragging(event,'third-app')" ondblclick="dbclick()">
+      <div>
+        <h5>Camera</h5>
+      </div>
+      <div class="navigations">
+        <div class="navigation_options maximize"></div>
+        <div class="navigation_options minimize"></div>
+        <div class="navigation_options close"><a href="./demo.html">click</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Context Menu -->
+  <ul class="menu hide">
+    <li class="row">
+      <p>Follow on GitHub</p>
+      <div>
+        <kbd>⇧</kbd>
+        <kbd>G</kbd>
+      </div>
+    </li>
+    <li class="row">
+      <p>Tweet</p>
+      <div>
+        <kbd>⇧</kbd>
+        <kbd>T</kbd>
+      </div>
+    </li>
+    <li class="row">
+      <p>View in Figma</p>
+      <div>
+        <kbd>⇧</kbd>
+        <kbd>F</kbd>
+      </div>
+    </li>
+    <hr class="divider" />
+    <li class="row">
+      <p>Go Home</p>
+      <div>
+        <kbd>⇧</kbd>
+        <kbd>H</kbd>
+      </div>
+    </li>
+    <li class="row">
+      <p>New Window</p>
+      <div>
+        <kbd>⌘</kbd>
+        <kbd>N</kbd>
+      </div>
+    </li>
+    <hr class="divider" />
+    <li class="row">
+      <p>Back</p>
+      <div>
+        <kbd>⌘</kbd>
+        <kbd>←</kbd>
+      </div>
+    </li>
+    <li class="row">
+      <p>Forward</p>
+      <div>
+        <kbd>⌘</kbd>
+        <kbd>→</kbd>
+      </div>
+    </li>
+    <li class="row">
+      <p>Reload</p>
+      <div>
+        <kbd>⌘</kbd>
+        <kbd>R</kbd>
+      </div>
+    </li>
+    <li class="row">
+      <p>Print</p>
+      <div>
+        <kbd>⌘</kbd>
+        <kbd>P</kbd>
+      </div>
+    </li>
+    <li class="row">
+      <p>Copy URL</p>
+      <div>
+        <kbd>C</kbd>
+      </div>
+    </li>
+  </ul>
+
+</body>
+<script src="./javascript/app.js" defer></script>
+<script src="./javascript/settings_app.js" defer></script>
+
 </html>
