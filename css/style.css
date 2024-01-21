@@ -429,7 +429,7 @@ body{
 }
 @media (max-width: 750px) {
   #main_menu_windows {
-    display: flex;
+    /* display: flex; */
     width: 100vw;
     height: calc(100dvh - 40px);
     flex-direction: column;

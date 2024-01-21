@@ -37,49 +37,44 @@ function stopDragging() {
   isDragging = false;
 }
 
-let application_last_position_and_state = {};
+let application_position = {};
 function dbclick() {
   if (
-    !application_last_position_and_state[containerId] ||
-    !application_last_position_and_state[containerId].fullscreen
+    !application_position[containerId] ||
+    !application_position[containerId].fullscreen
   ) {
     let dimensions = document.getElementById(containerId);
     let left = dimensions.style.left;
     let top = dimensions.style.top;
     let height = dimensions.style.height;
     let width = dimensions.style.width;
-    application_last_position_and_state[containerId] = {
+    application_position[containerId] = {
       left: left,
       top: top,
       height: height,
       width: width,
       fullscreen: true,
     };
-    console.table(application_last_position_and_state);
-    document.getElementById(containerId).style.transition = ".3s ease";
-    document.getElementById(containerId).style.height = "calc(100vh - 40px)";
-    document.getElementById(containerId).style.width = "100%";
-    document.getElementById(containerId).style.top = "0px";
-    document.getElementById(containerId).style.left = "0px";
-  } else if (
-    application_last_position_and_state[containerId].fullscreen === true
-  ) {
-    document.getElementById(containerId).style.transition = ".3s ease";
-    document.getElementById(containerId).style.height =
-      application_last_position_and_state[containerId].height;
-    document.getElementById(containerId).style.width =
-      application_last_position_and_state[containerId].width;
-    document.getElementById(containerId).style.top =
-      application_last_position_and_state[containerId].top;
-    document.getElementById(containerId).style.left =
-      application_last_position_and_state[containerId].left;
-    console.log(application_last_position_and_state[containerId].left);
-    let dimensions = document.getElementById(containerId);
+    console.table(application_position);
+    _id(containerId).style.transition = ".2s ease";
+    _id(containerId).style.height = "calc(100vh - 40px)";
+    _id(containerId).style.width = "100%";
+    _id(containerId).style.top = "0px";
+    _id(containerId).style.left = "0px";
+  } else if (application_position[containerId].fullscreen === true) {
+    _id(containerId).style.transition = ".2s ease";
+
+    _id(containerId).style.height = application_position[containerId].height;
+    _id(containerId).style.width = application_position[containerId].width;
+    _id(containerId).style.top = application_position[containerId].top;
+    _id(containerId).style.left = application_position[containerId].left;
+    console.log(application_position[containerId].left);
+    let dimensions = _id(containerId);
     let left = dimensions.style.left;
     let top = dimensions.style.top;
     let height = dimensions.style.height;
     let width = dimensions.style.width;
-    application_last_position_and_state[containerId] = {
+    application_position[containerId] = {
       left: left,
       top: top,
       height: height,
@@ -88,13 +83,13 @@ function dbclick() {
     };
   }
   setTimeout(() => {
-    document.getElementById(containerId).style.transition = "none";
-  }, 300);
+    _id(containerId).style.transition = "none";
+  }, 200);
 }
 
 /* Background Changer */
 function changeBg(id) {
-  let bg_input = document.getElementById(`${id}-updater`);
+  let bg_input = _id(`${id}-updater`);
   if (bg_input.files.length > 0) {
     const file = bg_input.files[0];
     const reader = new FileReader();
@@ -119,7 +114,19 @@ function bg_changer(id, url) {
     let background2 = _id("lock_screen_with_password");
     background.style.backgroundImage = `url(${url})`;
     background2.style.backgroundImage = `url(${url})`;
+  } else if (id === "profile") {
+    _id("profile").src = url;
   }
 }
 bg_changer("main-container", localStorage.getItem("main-container"));
 bg_changer("lock_screen", localStorage.getItem("lock_screen"));
+bg_changer("profile", localStorage.getItem("profile"));
+
+/* Close Application */
+function close_app() {
+  _id(containerId).style.transition = ".2s ease";
+  _id(containerId).style.opacity = "0";
+  setTimeout(() => {
+    _id(containerId).style.display = "none";
+  }, 200);
+}

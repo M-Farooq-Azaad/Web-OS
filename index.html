@@ -58,7 +58,7 @@
     <div id="asking_password">
       <div id="img_username_password_holder">
         <div id="image_div">
-          <img src="./assets/profile.png" alt="" />
+          <img src="" alt="profile" id="profile" />
         </div>
         <div id="username_above_password">Farooq Jutt</div>
         <div id="password_container">
@@ -551,12 +551,13 @@
   <div id="settings-app" class="move-able">
     <div class="topBar" onmousedown="startDragging(event,'settings-app')" ondblclick="dbclick()">
       <div>
-        <h5>Management</h5>
+        <h5>Settings</h5>
       </div>
       <div class="navigations">
-        <div class="navigation_options maximize"></div>
-        <div class="navigation_options minimize"></div>
-        <div class="navigation_options close"><a href="./demo.html">click</a>
+        <div class="navigation_options maximize"><img src="./assets/icons/minimize.png" alt="minimize"></div>
+        <div class="navigation_options minimize" onclick="dbclick()"><img src="./assets/icons/maximize.png"
+            alt="Maximize"></div>
+        <div class="navigation_options close" onclick="close_app()"><img src="./assets/icons/close.png" alt="Close">
         </div>
       </div>
     </div>
@@ -565,32 +566,36 @@
 
   <!-- Two -->
   <div id="camera-app" class="move-able">
+
     <div class="topBar" onmousedown="startDragging(event,'camera-app')" ondblclick="dbclick()">
       <div>
-        <h5>Camera</h5>
+        <h5>Settings</h5>
       </div>
       <div class="navigations">
-        <div class="navigation_options maximize"></div>
-        <div class="navigation_options minimize"></div>
-        <div class="navigation_options close"><a href="./demo.html">click</a>
+        <div class="navigation_options maximize"><img src="./assets/icons/minimize.png" alt="minimize"></div>
+        <div class="navigation_options minimize" onclick="dbclick()"><img src="./assets/icons/maximize.png"
+            alt="Maximize"></div>
+        <div class="navigation_options close" onclick="close_app()"><img src="./assets/icons/close.png" alt="Close">
         </div>
       </div>
     </div>
     <div class="application_main_body">
-      <!-- <iframe src="https://codebeautify.org/api-test" style="width: 100%;height: inherit;"></iframe> -->
+      <!-- <iframe src="https://www.pixect.com" style="width: 100%;height: inherit;"></iframe> -->
     </div>
   </div>
 
   <!-- Three -->
   <div id="third-app" class="move-able">
+
     <div class="topBar" onmousedown="startDragging(event,'third-app')" ondblclick="dbclick()">
       <div>
         <h5>Settings</h5>
       </div>
       <div class="navigations">
-        <div class="navigation_options maximize"></div>
-        <div class="navigation_options minimize"></div>
-        <div class="navigation_options close"><a href="./demo.html">click</a>
+        <div class="navigation_options maximize"><img src="./assets/icons/minimize.png" alt="minimize"></div>
+        <div class="navigation_options minimize" onclick="dbclick()"><img src="./assets/icons/maximize.png"
+            alt="Maximize"></div>
+        <div class="navigation_options close" onclick="close_app()"><img src="./assets/icons/close.png" alt="Close">
         </div>
       </div>
     </div>
@@ -603,7 +608,13 @@
       <h4>Lock screen background</h4>
       <input type="file" id="lock_screen-updater">
       <button onclick="changeBg('lock_screen')">Change Now</button>
+      <br>
+      <br>
+      <h4>Change profile Pic</h4>
+      <input type="file" id="profile-updater">
+      <button onclick="changeBg('profile')">Change Now</button>
     </div>
+
   </div>
 
 
