@@ -1,41 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Upload to Local Storage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
 </head>
 <body>
-  <input type="file" id="imageInput" accept="image/*">
-  <button onclick="uploadImage()">Upload Image</button>
-
-  <script>
-    function uploadImage() {
-      const input = document.getElementById('imageInput');
-      
-      // Ensure a file is selected
-      if (input.files.length > 0) {
-        const file = input.files[0];
-
-        // Use FileReader to read the file content
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-          // Convert the image data to Base64
-          const imageData = e.target.result;
-
-          // Store the Base64 data in local storage
-          localStorage.setItem('uploadedImage', imageData);
-
-          alert('Image uploaded to local storage!');
-        };
-
-        // Read the file as data URL (Base64)
-        reader.readAsDataURL(file);
-      } else {
-        alert('Please select an image file.');
-      }
-    }
-  </script>
+    <h1>Demo.PK</h1>
 </body>
 </html>

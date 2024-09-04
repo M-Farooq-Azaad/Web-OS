@@ -548,7 +548,7 @@
 
 
   <!-- One -->
-  <div id="settings-app" class="move-able">
+  <!-- <div id="settings-app" class="move-able">
     <div class="topBar" onmousedown="startDragging(event,'settings-app')" ondblclick="dbclick()">
       <div>
         <h5>Settings</h5>
@@ -561,11 +561,10 @@
         </div>
       </div>
     </div>
-  </div>
-
+  </div> -->
 
   <!-- Two -->
-  <div id="camera-app" class="move-able">
+  <!-- <div id="camera-app" class="move-able">
 
     <div class="topBar" onmousedown="startDragging(event,'camera-app')" ondblclick="dbclick()">
       <div>
@@ -579,10 +578,8 @@
         </div>
       </div>
     </div>
-    <div class="application_main_body">
-      <!-- <iframe src="https://www.pixect.com" style="width: 100%;height: inherit;"></iframe> -->
-    </div>
-  </div>
+
+  </div> -->
 
   <!-- Three -->
   <div id="third-app" class="move-able">
@@ -613,22 +610,65 @@
       <h4>Change profile Pic</h4>
       <input type="file" id="profile-updater">
       <button onclick="changeBg('profile')">Change Now</button>
+      <!-- habibi -->
+      <div>
+        <div id="left-side">
+
+        </div>
+        <div id="right-side"></div>
+      </div>
     </div>
 
   </div>
 
 
+
+  <!-- Creating Window container using JS -->
+  <!-- <div id="yalla-app">
+   <iframe src="https://www.giftofspeed.com/request-checker/"></iframe>
+  </div> -->
+  <!-- Http request application -->
+  <!-- <div id="yalla-app">
+
+    <iframe src="https://base64.guru/tools/http-request-online"></iframe>
+  
+  </div> -->
+
+  <!-- Pysharer App -->
+  <!-- <div id="yalla-app">
+    <iframe src="http://192.168.0.105:5000"></iframe>
+  </div> -->
+
+
+  <!-- settings App -->
+  <!-- <div id="yalla-app">
+    <iframe src="./settings-app/index.html"></iframe>
+  </div> -->
+
+
+  <!-- Trading App -->
+  <!-- <div id="yalla-app">
+    <iframe src="https://s.tradingview.com/dailyfx/widgetembed/?hideideas=1&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en#%7B"symbol"%3A"FX_IDC%3AEURUSD"%2C"frameElementId"%3A"tradingview_4eaf7"%2C"interval"%3A"D"%2C"hide_side_toolbar"%3A"0"%2C"allow_symbol_change"%3A"1"%2C"save_image"%3A"1"%2C"studies"%3A"%5B%5D"%2C"theme"%3A"Light"%2C"timezone"%3A"exchange"%2C"studies_overrides"%3A"%7B%7D"%2C"utm_source"%3A"www.dailyfx.com"%2C"utm_medium"%3A"widget"%2C"utm_campaign"%3A"chart"%2C"utm_term"%3A"FX_IDC%3AEURUSD"%2C"page-uri"%3A"www.dailyfx.com%2Fcharts"%7D"></iframe>
+  </div> -->
+  <!-- Pexels wallpaper application -->
+  <!-- <div id="yalla-app">
+    <iframe src="https://www.pexels.com/search/HD%20wallpaper/"></iframe>
+  </div> -->
+  <!-- Another -->
+  <!-- <div id="yalla-app">
+    <iframe src="https://base64.guru/tools/http-request-online"></iframe>
+  </div> -->
   <!-- Context Menu -->
   <ul class="menu hide">
-    <li class="row">
-      <p>Follow on GitHub</p>
+    <li class="row" onclick="open_application('third-app')">
+      <p>Settings</p>
       <div>
         <kbd>⇧</kbd>
         <kbd>G</kbd>
       </div>
     </li>
-    <li class="row">
-      <p>Tweet</p>
+    <li class="row" onclick="simulateF12KeyPress()">
+      <p>Console Panel</p>
       <div>
         <kbd>⇧</kbd>
         <kbd>T</kbd>
@@ -693,8 +733,14 @@
     </li>
   </ul>
 
+  <!-- Toast -->
+  <div id="toast">
+    <h5 id="toast-description"></h5>
+  </div>
+
 </body>
 <script src="./javascript/app.js" defer></script>
 <script src="./javascript/settings_app.js" defer></script>
+<script src="./javascript/window_container.js" defer></script>
 
 </html>

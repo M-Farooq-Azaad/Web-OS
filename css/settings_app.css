@@ -1,13 +1,16 @@
 .move-able {
-  /* border: 1px solid rgba(128, 128, 128, 0.473); */
+  /* border: 1px solid rgba(90, 89, 89, 0.534); */
+  box-shadow: 0px 0px 21px 5px #00000040;
+  background-color: white;
+  padding-top: 35px;
+  min-height: 200px;
+  min-width: 320px;
   transition: 0ms;
   position: fixed;
   overflow: auto;
+  color: black;
   resize: both;
   top: 0px;
-  min-width: 200px;
-  min-height: 200px;
-  box-shadow: 0px 0px 21px 5px #00000040;
 }
 #settings-app {
   background-color: tan;
@@ -56,7 +59,7 @@
 }
 .navigation_options img {
   width: 14px;
-  transition: .1s ease;
+  transition: 0.1s ease;
 }
 .navigation_options:hover img {
   width: 18px;
@@ -64,6 +67,40 @@
 .close:hover {
   background-color: red;
 }
-.maximize:hover,.minimize:hover  {
+.maximize:hover,
+.minimize:hover {
   background-color: rgba(255, 255, 255, 0.434);
+}
+
+/* Toast */
+#toast {
+  transition: 0.3s cubic-bezier(1, 0.06, 0, 1.03) !important;
+  padding: 0px 20px 0px 20px;
+  background-color: white;
+  height: 40px;
+  position: absolute;
+  top: -50px;
+  right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  border-radius: 4px;
+}
+
+#toast h5 {
+  font-weight: 400;
+}
+
+/* Settings-application */
+#yalla-app {
+  iframe {
+    border: none;
+    outline: none;
+    width:100%;
+    height: calc(100% - 34px) !important;
+    position: absolute;
+    top: 34px;
+    left: 0px;
+  }
 }

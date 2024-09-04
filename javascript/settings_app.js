@@ -102,7 +102,7 @@ function changeBg(id) {
     };
     reader.readAsDataURL(file);
   } else {
-    alert("Please select an image file.");
+    toast_function('You have not selected any image')
   }
 }
 function bg_changer(id, url) {
@@ -128,5 +128,62 @@ function close_app() {
   _id(containerId).style.opacity = "0";
   setTimeout(() => {
     _id(containerId).style.display = "none";
+    console.log(`${containerId}-taskbar`);
+    _id(`${containerId}-taskbar`).remove();
+    all_apps[containerId].is_active = false;
+    console.log(console.table(all_apps))
   }, 200);
+}
+
+/* Open Application */
+function open_application(id) {
+  dynamic_taskbar(id);
+  _id(id).style.transition = ".2s ease";
+  _id(id).style.display = "block";
+  setTimeout(() => {
+    _id(id).style.opacity = "1";
+  }, 100);
+  setTimeout(() => {
+    _id(id).style.transition = ".0s ease";
+  }, 200);
+}
+
+/* Making taskbar Dynamic */
+function dynamic_taskbar(id) {
+  if (all_apps[id].is_active === false) {
+    let icon_wrapper = document.createElement("div");
+    icon_wrapper.style.borderBottom = "3px solid skyBlue"
+    icon_wrapper.id = `${id}-taskbar`;
+    let icon = document.createElement("img");
+    icon.src = all_apps[id].icon_url;
+    icon_wrapper.append(icon);
+    _id("opened_app").append(icon_wrapper);
+    all_apps[id].is_active = true;
+  } else {
+    toast_function('App is already running');
+  }
+}
+
+all_apps = {
+  "third-app": {
+    app_name: "settings",
+    icon_url: "./assets/start_icon.png",
+    is_active: false,
+  },
+};
+
+/* Toast */
+
+function toast_function(description) {
+  let toast = _id("toast");
+  _id("toast-description").innerText = description;
+  toast.style.top = "15px";
+  setTimeout(() => {
+    let toast = _id("toast");
+    toast.style.top = "-150px";
+  }, 4000);
+}
+function toast_close() {
+  let toast = _id("toast");
+  toast.style.top = "-150px";
 }

@@ -1,0 +1,12 @@
+{
+    "version": "0.0.0.1",
+    "id": "yalla-app",
+    "app_name": "John Doe",
+    "app_icon": "././././././app.png",
+    "dimension": {
+        "min_width": "800px",
+        "max_width": "100%",
+        "min_height": "calc(100vh - 300px)",
+        "max_height": "calc(100vh - 75px)"
+    }
+}
